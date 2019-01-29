@@ -1,2 +1,3 @@
 # hello-world
-Hello Repo
+
+I strive to learn 
