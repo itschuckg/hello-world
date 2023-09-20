@@ -1,0 +1,29 @@
+import org.springframework.batch.item.file.LineMapper;
+
+public class CustomLineMapper implements LineMapper<String> {
+
+    @Override
+    public String mapLine(String line, int lineNumber) throws Exception {
+        // Check if this is the last line
+        if (isLastLine(lineNumber)) {
+            return null; // Skip the last line
+        }
+
+        // Process and return other lines as needed
+        return line;
+    }
+
+    private boolean isLastLine(int lineNumber) {
+        // Define your logic to determine if this is the last line
+        // For example, you can compare it to a known total line number
+        int totalLines = getTotalLines(); // Replace with your logic
+        return lineNumber == totalLines;
+    }
+
+    private int getTotalLines() {
+        // Implement a method to determine the total number of lines in the file
+        // This could involve reading the file or using some other approach
+        // Return the total number of lines
+        return 100; // Replace with your logic
+    }
+}
